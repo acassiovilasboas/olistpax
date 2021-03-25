@@ -27,8 +27,9 @@ class Category
         return $response;
     }
 
-    public function create(array $data)
+    public function create($data)
     {
+
 //       header comentado para rodar os testes
 //       header('Content-type: application/json');
 

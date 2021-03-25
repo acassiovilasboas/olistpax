@@ -10,17 +10,11 @@ class ProductTest extends \PHPUnit\Framework\TestCase
 {
     private $model;
 
-    public function test__construct()
-    {
-        $this->model = (new Product());
-        $this->assertIsObject($this->model);
-    }
-
 
     /*
      * method/function of index()
      */
-
+    // list products in database
     public function testIndex()
     {
         $objects = \App\Controllers\Product::index();
@@ -32,8 +26,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
     /*
      * method/functions of create
      */
-
-    // salvando novo produto no banco
+    // saving register in database
     public function testCreateObject()
     {
         $arrayProdutc = [
@@ -47,30 +40,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
     }
 
 
-    // provocando erro por objeto vazio
-    public function testCreateProductEmpty()
-    {
-        $arrayProdutc = [];
-        $response = \App\Controllers\Product::create($arrayProdutc);
-        $this->assertFalse($response);
-    }
-
-
-    // provocando erro por falta de informacao obrigatoria
-    public function testCreateProductFieldRequireNotDeclared()
-    {
-        $arrayProdutc = [
-            'name' => '',
-            'category_id' => 5,
-            'price' => 50.2,
-            'quantity' => 50
-        ];
-        $response = \App\Controllers\Product::create($arrayProdutc);
-        $this->assertFalse($response);
-    }
-
-
-    // provocando erro ao salvar no banco, tipo de dado inválido
+    // cannot be created because value for int has declared text
     public function testCreateProductFieldStatementInvalid()
     {
         $arrayProdutc = [
@@ -83,8 +53,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($response);
     }
 
-
-    // provocando erro por informando categoria inexistente
+    // cannot be created because category not exist
     public function testCreateProductCategoryNotFound()
     {
         $arrayProdutc = [
@@ -101,8 +70,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
     /*
      * method/functions of findById()
      */
-
-    // listando produto por id (ultimo id registrado)
+    // loading register
     public function testFindBiId()
     {
         $this->model = (new Product())->find()->order('id')->fetch(true);
@@ -115,8 +83,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertIsObject($object);
     }
 
-
-    // provocando erro - passagem de id inexistente
+    // cannot be loading because number id not exist
     public function testFindBiIdNotFound()
     {
         $arrayProduct = ['id' => 999999];
@@ -125,23 +92,12 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($response);
     }
 
-    // provocando erro - omitindo chave id no array
-    public function testFindBiIdKeyIdNotFound()
-    {
-        $arrayProduct = ['chaveInvalida' => 5];
-        $response = \App\Controllers\Product::findById($arrayProduct);
-
-        $this->assertFalse($response);
-    }
-
-
 
     /*
      * method/functions of edit
      */
-
-    // testando regra de negocio: ao editar um produto e nao informar a
-    // quantidade a ser atualizada, incremente a quantiadade automaticamente
+    // updated register and check value of quantity.
+    // quantity increment if value of increment not sent.
     public function testEditIncrementQuantityAutomatic()
     {
         $this->model = (new Product())->find()->order('id')->fetch(true);
@@ -161,8 +117,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertNotEquals($objectOld->quantity, $objectUpdated->quantity);
     }
 
-
-    // provocando erro por id invalido
+    // cannot be updated because number id not exist
     public function testEditIdNotFound()
     {
         $response = \App\Controllers\Product::edit([
@@ -175,19 +130,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($response);
     }
 
-    // provocando erro por key nao informada
-    public function testEditKeyIdNotFound()
-    {
-        $response = \App\Controllers\Product::edit([
-            'name' => "newProductTestOverwritten",
-            'category_id' => 2,
-            'price' => 5.9
-        ]);
-
-        $this->assertFalse($response);
-    }
-
-    // provocando erro por declaracao invalida
+    // cannot be updated because sent text value in field for int
     public function testEditIdStatementInvalid()
     {
         $this->model = (new Product())->find()->order('id')->fetch(true);
@@ -207,7 +150,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($priceOld, $priceUpdated);
     }
 
-    // provocando erro por categoria invalida
+    // cannot be updated because number category not exist in database
     public function testEditIdCategoryInvalid()
     {
         $this->model = (new Product())->find()->order('id')->fetch(true);
@@ -227,8 +170,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
     /*
      * method/function delete()
      */
-
-    // provocando erro id inválido
+    // cannot be deleted because number id not exist in database
     public function testDeleteIdNotFoud()
     {
         $arrayProduct = ['id' => 99999];
@@ -238,21 +180,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($methotDelete);
     }
 
-    // provocando erro nova da chave invalida
-    public function testDeleteNameKeyInvalid()
-    {
-        $this->model = (new Product())->find()->order('id')->fetch(true);
-        $object = $this->model[sizeof($this->model)-1];
-
-        $arrayProduct = ['name_key_invalid' => $object->id];
-
-        $methotDelete = \App\Controllers\Product::delete($arrayProduct);
-
-        $this->assertFalse($methotDelete);
-    }
-
-
-    // excluindo registro
+    // deleting register
     public function testDelete()
     {
         $this->model = (new Product())->find()->order('id')->fetch(true);

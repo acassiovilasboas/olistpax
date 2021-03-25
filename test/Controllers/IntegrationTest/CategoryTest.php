@@ -10,17 +10,10 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
 {
     private $model;
 
-//    public function test__construct()
-//    {
-//        $this->model = (new Category());
-//        $this->assertIsObject($this->model);
-//        $this->assertNotEmpty($this->model);
-//    }
-
-
     /*
      * method/functions of index()
      */
+    // list of registers
     public function testIndex()
     {
         $objects = \App\Controllers\Category::index();
@@ -31,7 +24,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
     /*
      * method/function of create()
      */
-    // criando objeto
+    // create object and saved in database
     public function testCreate()
     {
         $arrayObject = [
@@ -41,30 +34,11 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($object);
     }
 
-    // provocando erro deixando de passar field obrigatorio
-    public function testCreateFieldRequire()
-    {
-        $arrayObject = [
-            'name' => ''
-        ];
-        $object = \App\Controllers\Category::create($arrayObject);
-        $this->assertFalse($object);
-    }
-
-    // provocando erro com array vazio
-    public function testCreateArrayEmpty()
-    {
-        $arrayObject = [];
-        $object = \App\Controllers\Category::create($arrayObject);
-        $this->assertFalse($object);
-    }
-
 
     /*
      * method/functions of findById()
      */
-
-    // provocando erro - passagem de id inexistente
+    // cannot be loaded because value of id not exists in database
     public function testFindBiIdNotFound()
     {
         $arrayCategory = ['id' => 999999];
@@ -72,15 +46,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($response);
     }
 
-    // provocando erro - omitindo chave id no array
-    public function testFindBiIdKeyIdNotFound()
-    {
-        $arrayCategory = ['chaveInvalida' => 5];
-        $response = \App\Controllers\Category::findById($arrayCategory);
-        $this->assertFalse($response);
-    }
-
-    // listando produto por id (ultimo id registrado)
+    // loading register when value correct
     public function testFindBiId()
     {
         $this->model = (new Category())->find()->order('id')->fetch(true);
@@ -96,8 +62,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
     /*
      * method/functions of edit
      */
-
-    // provocando erro por id invalido
+    // cannot be updated because value of id not exist in database
     public function testEditIdNotFound()
     {
         $response = \App\Controllers\Category::edit([
@@ -107,16 +72,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($response);
     }
 
-    // provocando erro por key invalido
-    public function testEditKeyIdNotFound()
-    {
-        $response = \App\Controllers\Category::edit([
-            'name' => "newCategoryTestOverwritten"
-        ]);
-        $this->assertFalse($response);
-    }
-
-
+    // updated record and validating the old name with the updated name
     public function testEditCategory()
     {
         $this->model = (new Category())->find()->order('id')->fetch(true);
@@ -139,8 +95,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
     /*
      * method/function delete()
      */
-
-    // provocando erro id inválido
+    // cannot be deleted because value of id not exist in database
     public function testDeleteIdNotFoud()
     {
         $arrayCategory = ['id' => 99999];
@@ -150,21 +105,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($methotDelete);
     }
 
-    // provocando erro nova da chave invalida
-    public function testDeleteNameKeyInvalid()
-    {
-        $this->model = (new Category())->find()->order('id')->fetch(true);
-        $object = $this->model[sizeof($this->model)-1];
-
-        $arrayCategory = ['name_key_invalid' => $object->id];
-
-        $methotDelete = \App\Controllers\Category::delete($arrayCategory);
-
-        $this->assertFalse($methotDelete);
-    }
-
-
-    // excluindo registro
+    // deleting register
     public function testDelete()
     {
         $this->model = (new Category())->find()->order('id')->fetch(true);
@@ -176,6 +117,4 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
 
         $this->assertTrue($methotDelete);
     }
-
-
 }

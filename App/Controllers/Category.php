@@ -17,7 +17,7 @@ class Category
         $response = [];
         foreach ($category as $c)
             $response[] = $c->data();
-
+        http_response_code(200);
         echo json_encode(array(
             "status" => "success",
             "class" => "Controller/Category",
@@ -44,7 +44,7 @@ class Category
             }
 
             if (!empty($message)) {
-                http_response_code(404);
+                http_response_code(400);
                 echo json_encode(array(
                     "status" => "error",
                     "type" => "invalid_data",
@@ -58,6 +58,7 @@ class Category
             $model->name = $data['name'];
 
             $model->save();
+            http_response_code(201);
             echo json_encode(array(
                 "status" => "success",
                 "class" => "Controller/Category",
@@ -67,15 +68,25 @@ class Category
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             return true;
         }
-        http_response_code(404);
+
+        $message = [];
+        $model = (new \App\Models\Category());
+        foreach ($model->columns() as $m) {
+            if (empty($data[$m->Field]) && $m->Null == 'NO' && @$m->Field != 'id') {
+                $message[] = $m->Field;
+            }
+        }
+
+        http_response_code(400);
         echo json_encode(array(
             "status" => "error",
             "type" => "invalid_data",
             "class" => "Controller/Category",
             "method" => "create",
-            "message" => "não foi possivel salvar o categoria"),
+            "message" => "obrigatório", "fields" => $message),
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         return false;
+
     }
 
     public function findById(array $data)
@@ -88,7 +99,7 @@ class Category
             $category = (new \App\Models\Category())->findById($id);
 
             if (empty($category)) {
-                http_response_code(404);
+                http_response_code(400);
                 echo json_encode(array(
                     "status" => "error",
                     "type" => "invalid_data",
@@ -100,7 +111,7 @@ class Category
             }
 
             $response = $category->data();
-
+            http_response_code(200);
             echo json_encode(array(
                 "status" => "success",
                 "class" => "Controller/Category",
@@ -108,7 +119,8 @@ class Category
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             return $response;
         }
-        http_response_code(404);
+
+        http_response_code(400);
         echo json_encode(array(
             "status" => "error",
             "type" => "invalid_data",
@@ -129,7 +141,7 @@ class Category
             $object = (new \App\Models\Category())->findById($id);
 
             if (empty($object)) {
-                http_response_code(404);
+                http_response_code(400);
                 echo json_encode(array(
                     "status" => "error",
                     "type" => "invalid_data",
@@ -143,6 +155,7 @@ class Category
             $object->name = $data['name'] ?? $object->name;
 
             $object->save();
+            http_response_code(201);
             echo json_encode(array(
                 "status" => "success",
                 "class" => "Controller/Category",
@@ -151,9 +164,9 @@ class Category
                 "message" => "categoria editada com sucesso"),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             return true;
-
         }
-        http_response_code(404);
+
+        http_response_code(400);
         echo json_encode(array(
             "status" => "error",
             "type" => "invalid_data",
@@ -174,7 +187,7 @@ class Category
             $object = (new \App\Models\Category())->findById($id);
 
             if (empty($object)) {
-                http_response_code(404);
+                http_response_code(400);
                 echo json_encode(array(
                     "status" => "error",
                     "type" => "invalid_data",
@@ -186,6 +199,7 @@ class Category
             }
 
             $object->destroy();
+            http_response_code(200);
             echo json_encode(array(
                 "status" => "sucess",
                 "class" => "Controller/Category",
@@ -196,7 +210,7 @@ class Category
             return true;
 
         }
-        http_response_code(404);
+        http_response_code(400);
         echo json_encode(array(
             "status" => "error",
             "type" => "invalid_data",

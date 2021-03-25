@@ -10,14 +10,6 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
 {
     private $model;
 
-//    public function test__construct()
-//    {
-//        $this->model = (new Category());
-//        $this->assertIsObject($this->model);
-//        $this->assertNotEmpty($this->model);
-//    }
-
-
     /*
      * method/functions of index()
      */
@@ -31,7 +23,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
     /*
      * method/function of create()
      */
-    // criando objeto
+    // create object
     public function testCreate()
     {
         $arrayObject = [
@@ -41,7 +33,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($object);
     }
 
-    // provocando erro deixando de passar field obrigatorio
+    // cannot be created because the value name has not been sent
     public function testCreateFieldRequire()
     {
         $arrayObject = [
@@ -51,7 +43,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($object);
     }
 
-    // provocando erro com array vazio
+    // cannot be created because the array has empty
     public function testCreateArrayEmpty()
     {
         $arrayObject = [];
@@ -63,51 +55,19 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
     /*
      * method/functions of findById()
      */
-
-    // provocando erro - passagem de id inexistente
-    public function testFindBiIdNotFound()
-    {
-        $arrayCategory = ['id' => 999999];
-        $response = \App\Controllers\Category::findById($arrayCategory);
-        $this->assertFalse($response);
-    }
-
-    // provocando erro - omitindo chave id no array
+    // cannot be loaded because the array key is invalid and the id value is correct
     public function testFindBiIdKeyIdNotFound()
     {
-        $arrayCategory = ['chaveInvalida' => 5];
+        $arrayCategory = ['key_invalid' => 5];
         $response = \App\Controllers\Category::findById($arrayCategory);
         $this->assertFalse($response);
     }
-
-    // listando produto por id (ultimo id registrado)
-    public function testFindBiId()
-    {
-        $this->model = (new Category())->find()->order('id')->fetch(true);
-        $lastId = $this->model[sizeof($this->model)-1]->id;
-
-        $arrayCategory = ['id' => $lastId];
-        $object = \App\Controllers\Category::findById($arrayCategory);
-        $this->assertIsObject($object);
-    }
-
 
 
     /*
      * method/functions of edit
      */
-
-    // provocando erro por id invalido
-    public function testEditIdNotFound()
-    {
-        $response = \App\Controllers\Category::edit([
-            'id' => 999999,
-            'name' => "newCategoryTestOverwritten"
-        ]);
-        $this->assertFalse($response);
-    }
-
-    // provocando erro por key invalido
+    // cannot be updated because the array key not exist (id)
     public function testEditKeyIdNotFound()
     {
         $response = \App\Controllers\Category::edit([
@@ -117,40 +77,10 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
     }
 
 
-    public function testEditCategory()
-    {
-        $this->model = (new Category())->find()->order('id')->fetch(true);
-        $lastId = $this->model[sizeof($this->model)-1]->id;
-        $nameOld = $this->model[sizeof($this->model)-1]->name;
-
-        $arrayCategory = ['id' => $lastId, 'name' => 'nameOverride'];
-
-        $object = \App\Controllers\Category::edit($arrayCategory);
-
-        $categoryUpdated = (new Category())->findById($lastId);
-
-        $nameCategoryUpdated = $categoryUpdated->name;
-
-        $this->assertTrue($object);
-        $this->assertNotEquals($nameOld, $nameCategoryUpdated);
-    }
-
-
     /*
      * method/function delete()
      */
-
-    // provocando erro id inválido
-    public function testDeleteIdNotFoud()
-    {
-        $arrayCategory = ['id' => 99999];
-
-        $methotDelete = \App\Controllers\Category::delete($arrayCategory);
-
-        $this->assertFalse($methotDelete);
-    }
-
-    // provocando erro nova da chave invalida
+    // cannot be updated because the array key id invalid (id)
     public function testDeleteNameKeyInvalid()
     {
         $this->model = (new Category())->find()->order('id')->fetch(true);
@@ -162,20 +92,4 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
 
         $this->assertFalse($methotDelete);
     }
-
-
-    // excluindo registro
-    public function testDelete()
-    {
-        $this->model = (new Category())->find()->order('id')->fetch(true);
-        $object = $this->model[sizeof($this->model)-1];
-
-        $arrayCategory = ['id' => $object->id];
-
-        $methotDelete = \App\Controllers\Category::delete($arrayCategory);
-
-        $this->assertTrue($methotDelete);
-    }
-
-
 }

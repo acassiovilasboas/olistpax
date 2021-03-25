@@ -12,9 +12,4 @@ class Product extends DataLayer
     {
         parent::__construct("product", ["category_id", "name", "price"]);
     }
-
-    public function category()
-    {
-        return (new Category())->find("id = :category_id", "category_id={$this->category_id}")->fetch();
-    }
 }

@@ -6,31 +6,30 @@ namespace App\Controllers;
 
 class Product
 {
-    public function index(array $data)
+    public function index()
     {
-        try {
-            $product = (new \App\Models\Product())->find()->order('id')->fetch(true);
+        $product = (new \App\Models\Product())->find()->order('id')->fetch(true);
+//      header comentado para rodar os testes
+//      header('Content-type: application/json');
 
-            header('Content-type: application/json');
-
-            $response = [];
-            foreach ($product as $p) {
-                $response[] = $p->data();
-            }
-
-            echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            return $response;
-        } catch (\Exception $e) {
-            http_response_code(404);
-            echo json_encode(array("status" => "error",
-                "data" => $e->getMessage()),
-                JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        $response = [];
+        foreach ($product as $p) {
+            $response[] = $p->data();
         }
+
+        echo json_encode(array(
+            "status" => "success",
+            "class" => "Controller/Product",
+            "method" => "list",
+            "data" => $response),
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        return $response;
     }
 
     public function create(array $data)
     {
-        header('Content-type: application/json');
+//      header comentado para rodar os testes
+//      header('Content-type: application/json');
 
         if (!empty($data)) {
             $model = (new \App\Models\Product());
@@ -44,10 +43,14 @@ class Product
 
             if (!empty($message)) {
                 http_response_code(404);
-                echo json_encode(array("status" => "error",
-                    "type" => "obrigatório", "fields" => $message),
+                echo json_encode(array(
+                    "status" => "error",
+                    "type" => "invalid_data",
+                    "class" => "Controller/Product",
+                    "method" => "create",
+                    "message" => "obrigatório", "fields" => $message),
                     JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                return;
+                return false;
             }
 
             $category_id = filter_var($data['category_id'], FILTER_SANITIZE_NUMBER_INT);
@@ -55,9 +58,14 @@ class Product
 
             if (empty($category)) {
                 http_response_code(404);
-                echo json_encode(array("status" => "error",
-                    "data" => "categoria inválida"),
+                echo json_encode(array(
+                    "status" => "error",
+                    "type" => "invalid_data",
+                    "class" => "Controller/Product",
+                    "method" => "create",
+                    "message" => "categoria inválida"),
                     JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                return false;
             }
 
             $model->category_id = $category_id;
@@ -67,27 +75,41 @@ class Product
 
             if (!$model->save()) {
                 http_response_code(404);
-                echo json_encode(array("status" => "error",
-                    "data" => "Nao foi possivel salvar o produto"),
+                echo json_encode(array(
+                    "status" => "error",
+                    "type" => "invalid_data",
+                    "class" => "Controller/Product",
+                    "method" => "create",
+                    "message" => "Nao foi possivel salvar o produto"),
                     JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                return false;
             } else {
                 $model->save();
-                echo json_encode(array("status" => "success",
+                echo json_encode(array(
+                    "status" => "success",
+                    "method" => "create",
+                    "class" => "Controller/Product",
+                    "id" => $model->id,
                     "data" => "produto salvo com sucesso"),
                     JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                return;
+                return true;
             }
         }
         http_response_code(404);
-        echo json_encode(array("status" => "error",
-            "data" => "Nao foi possivel salvar o produto"),
+        echo json_encode(array(
+            "status" => "error",
+            "type" => "invalid_data",
+            "class" => "Controller/Product",
+            "method" => "create",
+            "message" => "não foi possivel salvar o produto"),
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        return false;
     }
 
-    public
-    function edit(array $data)
+    public function findById(array $data)
     {
-        header('Content-type: application/json');
+//      header comentado para rodar os testes
+//      header('Content-type: application/json');
 
         if (!empty($data['id'])) {
             $id = filter_var($data['id'], FILTER_SANITIZE_NUMBER_INT);
@@ -95,63 +117,143 @@ class Product
 
             if (empty($product)) {
                 http_response_code(404);
-                echo json_encode(array("status" => "error",
-                    "data" => "identificador inválido"),
+                echo json_encode(array(
+                    "status" => "error",
+                    "type" => "invalid_data",
+                    "class" => "Controller/Product",
+                    "method" => "findById",
+                    "message" => "identificador inválido"),
                     JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                return;
+                return false;
             }
 
-            $product->category_id = $data['category_id'] ?? $product->category_id;
-            $product->name = $data['name'] ?? $product->name;
-            $product->price = $data['price'] ?? $product->price;
-            $product->quantity = $data['quantity'] ?? $product->quantity + 1;
+            $response = $product->data();
 
-            if (!$product->save()) {
-                http_response_code(404);
-                echo json_encode(array("status" => "error",
-                    "data" => "Nao foi possivel salvar o produto"),
-                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            } else {
-                echo json_encode(array("status" => "success",
-                    "data" => "produto salvo com sucesso"),
-                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                return;
-            }
-
-        }
-        http_response_code(404);
-        echo json_encode(array("status" => "error",
-            "data" => "Nao foi possivel editar o produto"),
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    }
-
-    public
-    function delete(array $data)
-    {
-        header('Content-type: application/json');
-
-        if (!empty($data['id'])) {
-            $id = filter_var($data['id'], FILTER_SANITIZE_NUMBER_INT);
-            $product = (new \App\Models\Product())->findById($id);
-
-            if (empty($product)) {
-                http_response_code(404);
-                echo json_encode(array("status" => "error",
-                    "data" => "identificador inválido"),
-                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                return;
-            }
-
-            $product->destroy();
-            echo json_encode(array("status" => "sucess",
-                "data" => "produto excluido com sucesso"),
+            echo json_encode(array(
+                "status" => "success",
+                "class" => "Controller/Product",
+                "method" => "findById",
+                "data" => $response),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            return;
+            return $response;
+        }
+        http_response_code(404);
+        echo json_encode(array(
+            "status" => "error",
+            "type" => "invalid_data",
+            "class" => "Controller/Product",
+            "method" => "findById",
+            "message" => "não foi possivel editar o produto"),
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        return false;
+    }
+
+    public function edit(array $data)
+    {
+//      header comentado para rodar os testes
+//      header('Content-type: application/json');
+
+        if (!empty($data['id'])) {
+            $id = filter_var($data['id'], FILTER_SANITIZE_NUMBER_INT);
+            $product = (new \App\Models\Product())->findById($id);
+
+            if (empty($product)) {
+                http_response_code(404);
+                echo json_encode(array(
+                    "status" => "error",
+                    "type" => "invalid_data",
+                    "class" => "Controller/Product",
+                    "method" => "edit",
+                    "message" => "identificador inválido"),
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                return false;
+            }
+
+
+            if (!empty($data['category_id'])) {
+                $category_id = (int)filter_var($data['category_id'], FILTER_SANITIZE_NUMBER_INT);
+                if (!empty($category_id) && is_numeric($category_id))
+                    $category = (new \App\Models\Category())->findById($category_id);
+            }
+
+            if (empty($category)) {
+                http_response_code(404);
+                echo json_encode(array("status" => "error",
+                    "type" => "invalid_data",
+                    "class" => "Controller/Product",
+                    "method" => "edit",
+                    "message" => "categoria inválida"),
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                return false;
+            }
+
+            $product->category_id = $category_id ?? $product->category_id;
+            $product->name = !empty($data['name']) ? $data['name'] : $product->name;
+            $product->price = !empty($data['price']) ? $data['price'] : $product->price;
+            $product->quantity = !empty($data['quantity']) ? $data['quantity'] : $product->quantity + 1;
+
+            $product->save();
+            echo json_encode(array(
+                "status" => "success",
+                "class" => "Controller/Product",
+                "method" => "edit",
+                "id" => $product->id,
+                "message" => "produto salvo com sucesso"),
+                JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return true;
 
         }
         http_response_code(404);
-        echo json_encode(array("status" => "error",
-            "data" => "Nao foi possivel excluir o produto"),
+        echo json_encode(array(
+            "status" => "error",
+            "type" => "invalid_data",
+            "class" => "Controller/Product",
+            "method" => "edit",
+            "message" => "não foi possivel editar o produto"),
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        return false;
+    }
+
+    public function delete(array $data)
+    {
+//      header comentado para rodar os testes
+//      header('Content-type: application/json');
+
+        if (!empty($data['id'])) {
+            $id = filter_var($data['id'], FILTER_SANITIZE_NUMBER_INT);
+            $product = (new \App\Models\Product())->findById($id);
+
+            if (empty($product)) {
+                http_response_code(404);
+                echo json_encode(array(
+                    "status" => "error",
+                    "type" => "invalid_data",
+                    "class" => "Controller/Product",
+                    "method" => "delete",
+                    "message" => "identificador inválido"),
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                return false;
+            }
+
+            if ($product->destroy()) {
+                echo json_encode(array(
+                    "status" => "sucess",
+                    "class" => "Controller/Product",
+                    "method" => "delete",
+                    "id" => $id,
+                    "message" => "produto excluido com sucesso"),
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                return true;
+            }
+        }
+        http_response_code(404);
+        echo json_encode(array(
+            "status" => "error",
+            "type" => "invalid_data",
+            "class" => "Controller/Product",
+            "method" => "delete",
+            "message" => "nao foi possivel excluir o produto"),
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        return false;
     }
 }

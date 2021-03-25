@@ -1,6 +1,7 @@
 <?php
 
 
+
 namespace App\Controllers;
 
 
@@ -8,60 +9,54 @@ class BrazilStates
 {
     public function getStates()
     {
-        $states = self::getStatesApi();
-        $states = json_decode($states);
+        $apiGetStates = (new \App\Support\BrazilStates());
+        $apiGetStates->getBrazilStates();
+        $response = $apiGetStates->callback();
 
-        $this->createStates($states);
+        if(empty($response))
+            return false;
 
+        self::createStates($response);
+        return true;
     }
 
     public function index()
     {
-        header('Content-type: application/json');
+//        header('Content-type: application/json');
         $states = (new \App\Models\BrazilStates())->find()->fetch(true);
 
-        if($states) {
+        if ($states) {
 
             $arrayStates = [];
             foreach ($states as $state) {
                 $arrayStates[] = $state->data();
             }
 
-            echo json_encode($arrayStates,
+            echo json_encode(array(
+                "status" => "success",
+                "class" => "Controller/BrazilState",
+                "method" => "index",
+                "data" => $arrayStates),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return true;
 
         } else {
             http_response_code(404);
-            echo json_encode(array("status" => "error",
-                "data" => "nao possui estados registrados"),
+            echo json_encode(array(
+                "status" => "error",
+                "type" => "invalid_data",
+                "class" => "Controller/BrazilStats",
+                "method" => "index",
+                "message" => "nao possui estados registrados"),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return false;
         }
-    }
-
-    private static function getStatesApi()
-    {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        return $response;
     }
 
     private function createStates(array $data)
     {
-        header('Content-type: application/json');
+//        header comentado para rodar testes
+//        header('Content-type: application/json');
 
         if ($data) {
             foreach ($data as $state) {
@@ -73,17 +68,25 @@ class BrazilStates
 
                 if (!$model->save()) {
                     http_response_code(404);
-                    echo json_encode(array("status" => "error",
-                        "data" => "nao foi possivel salvar os estados"),
+                    echo json_encode(array(
+                        "status" => "error",
+                        "type" => "database",
+                        "class" => "BrazilStates",
+                        "method" => "createStates",
+                        "message" => "nao foi possivel salvar os estados"),
                         JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                    return;
+                    return false;
                 }
             }
 
             $quantidadeEstados = sizeof($data);
-            echo json_encode(array("status" => "success",
-                "data" => "{$quantidadeEstados} registros incluidos com sucesso"),
+            echo json_encode(array(
+                "status" => "success",
+                "class" => "BrazilStates",
+                "method" => "createStates",
+                "message" => "{$quantidadeEstados} registros incluidos com sucesso"),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return true;
         }
     }
 }

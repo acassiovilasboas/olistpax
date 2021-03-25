@@ -1,0 +1,1922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/var/www/html/olist/test" tests="34" assertions="36" errors="0" warnings="0" failures="0" skipped="0" time="0.652483">
+    <testsuite name="Tests\Controllers\BrazilStatesTest" file="/var/www/html/olist/test/Controllers/BrazilStatesTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.582727">
+      <testcase name="testGetStatesApiNotResponse" class="Tests\Controllers\BrazilStatesTest" classname="Tests.Controllers.BrazilStatesTest" file="/var/www/html/olist/test/Controllers/BrazilStatesTest.php" line="12" assertions="1" time="0.578783">
+        <system-out>{
+    "status": "success",
+    "class": "BrazilStates",
+    "method": "createStates",
+    "message": "27 registros incluidos com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testIndex" class="Tests\Controllers\BrazilStatesTest" classname="Tests.Controllers.BrazilStatesTest" file="/var/www/html/olist/test/Controllers/BrazilStatesTest.php" line="20" assertions="1" time="0.003945">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/BrazilState",
+    "method": "index",
+    "data": [
+        {
+            "id": "111",
+            "state_id": "11",
+            "name": "Rondônia",
+            "sigla": "RO",
+            "created_at": "2021-03-24 13:59:59",
+            "updated_at": "2021-03-24 13:59:59"
+        },
+        {
+            "id": "112",
+            "state_id": "12",
+            "name": "Acre",
+            "sigla": "AC",
+            "created_at": "2021-03-24 13:59:59",
+            "updated_at": "2021-03-24 13:59:59"
+        },
+        {
+            "id": "113",
+            "state_id": "13",
+            "name": "Amazonas",
+            "sigla": "AM",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "114",
+            "state_id": "14",
+            "name": "Roraima",
+            "sigla": "RR",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "115",
+            "state_id": "15",
+            "name": "Pará",
+            "sigla": "PA",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "116",
+            "state_id": "16",
+            "name": "Amapá",
+            "sigla": "AP",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "117",
+            "state_id": "17",
+            "name": "Tocantins",
+            "sigla": "TO",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "118",
+            "state_id": "21",
+            "name": "Maranhão",
+            "sigla": "MA",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "119",
+            "state_id": "22",
+            "name": "Piauí",
+            "sigla": "PI",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "120",
+            "state_id": "23",
+            "name": "Ceará",
+            "sigla": "CE",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "121",
+            "state_id": "24",
+            "name": "Rio Grande do Norte",
+            "sigla": "RN",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "122",
+            "state_id": "25",
+            "name": "Paraíba",
+            "sigla": "PB",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "123",
+            "state_id": "26",
+            "name": "Pernambuco",
+            "sigla": "PE",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "124",
+            "state_id": "27",
+            "name": "Alagoas",
+            "sigla": "AL",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "125",
+            "state_id": "28",
+            "name": "Sergipe",
+            "sigla": "SE",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "126",
+            "state_id": "29",
+            "name": "Bahia",
+            "sigla": "BA",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "127",
+            "state_id": "31",
+            "name": "Minas Gerais",
+            "sigla": "MG",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "128",
+            "state_id": "32",
+            "name": "Espírito Santo",
+            "sigla": "ES",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "129",
+            "state_id": "33",
+            "name": "Rio de Janeiro",
+            "sigla": "RJ",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "130",
+            "state_id": "35",
+            "name": "São Paulo",
+            "sigla": "SP",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "131",
+            "state_id": "41",
+            "name": "Paraná",
+            "sigla": "PR",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "132",
+            "state_id": "42",
+            "name": "Santa Catarina",
+            "sigla": "SC",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "133",
+            "state_id": "43",
+            "name": "Rio Grande do Sul",
+            "sigla": "RS",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "134",
+            "state_id": "50",
+            "name": "Mato Grosso do Sul",
+            "sigla": "MS",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "135",
+            "state_id": "51",
+            "name": "Mato Grosso",
+            "sigla": "MT",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "136",
+            "state_id": "52",
+            "name": "Goiás",
+            "sigla": "GO",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "137",
+            "state_id": "53",
+            "name": "Distrito Federal",
+            "sigla": "DF",
+            "created_at": "2021-03-24 14:00:00",
+            "updated_at": "2021-03-24 14:00:00"
+        },
+        {
+            "id": "138",
+            "state_id": "11",
+            "name": "Rondônia",
+            "sigla": "RO",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "139",
+            "state_id": "12",
+            "name": "Acre",
+            "sigla": "AC",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "140",
+            "state_id": "13",
+            "name": "Amazonas",
+            "sigla": "AM",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "141",
+            "state_id": "14",
+            "name": "Roraima",
+            "sigla": "RR",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "142",
+            "state_id": "15",
+            "name": "Pará",
+            "sigla": "PA",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "143",
+            "state_id": "16",
+            "name": "Amapá",
+            "sigla": "AP",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "144",
+            "state_id": "17",
+            "name": "Tocantins",
+            "sigla": "TO",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "145",
+            "state_id": "21",
+            "name": "Maranhão",
+            "sigla": "MA",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "146",
+            "state_id": "22",
+            "name": "Piauí",
+            "sigla": "PI",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "147",
+            "state_id": "23",
+            "name": "Ceará",
+            "sigla": "CE",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "148",
+            "state_id": "24",
+            "name": "Rio Grande do Norte",
+            "sigla": "RN",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "149",
+            "state_id": "25",
+            "name": "Paraíba",
+            "sigla": "PB",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "150",
+            "state_id": "26",
+            "name": "Pernambuco",
+            "sigla": "PE",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "151",
+            "state_id": "27",
+            "name": "Alagoas",
+            "sigla": "AL",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "152",
+            "state_id": "28",
+            "name": "Sergipe",
+            "sigla": "SE",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "153",
+            "state_id": "29",
+            "name": "Bahia",
+            "sigla": "BA",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "154",
+            "state_id": "31",
+            "name": "Minas Gerais",
+            "sigla": "MG",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "155",
+            "state_id": "32",
+            "name": "Espírito Santo",
+            "sigla": "ES",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "156",
+            "state_id": "33",
+            "name": "Rio de Janeiro",
+            "sigla": "RJ",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "157",
+            "state_id": "35",
+            "name": "São Paulo",
+            "sigla": "SP",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "158",
+            "state_id": "41",
+            "name": "Paraná",
+            "sigla": "PR",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "159",
+            "state_id": "42",
+            "name": "Santa Catarina",
+            "sigla": "SC",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "160",
+            "state_id": "43",
+            "name": "Rio Grande do Sul",
+            "sigla": "RS",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "161",
+            "state_id": "50",
+            "name": "Mato Grosso do Sul",
+            "sigla": "MS",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "162",
+            "state_id": "51",
+            "name": "Mato Grosso",
+            "sigla": "MT",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "163",
+            "state_id": "52",
+            "name": "Goiás",
+            "sigla": "GO",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "164",
+            "state_id": "53",
+            "name": "Distrito Federal",
+            "sigla": "DF",
+            "created_at": "2021-03-25 00:59:10",
+            "updated_at": "2021-03-25 00:59:10"
+        },
+        {
+            "id": "165",
+            "state_id": "11",
+            "name": "Rondônia",
+            "sigla": "RO",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "166",
+            "state_id": "12",
+            "name": "Acre",
+            "sigla": "AC",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "167",
+            "state_id": "13",
+            "name": "Amazonas",
+            "sigla": "AM",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "168",
+            "state_id": "14",
+            "name": "Roraima",
+            "sigla": "RR",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "169",
+            "state_id": "15",
+            "name": "Pará",
+            "sigla": "PA",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "170",
+            "state_id": "16",
+            "name": "Amapá",
+            "sigla": "AP",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "171",
+            "state_id": "17",
+            "name": "Tocantins",
+            "sigla": "TO",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "172",
+            "state_id": "21",
+            "name": "Maranhão",
+            "sigla": "MA",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "173",
+            "state_id": "22",
+            "name": "Piauí",
+            "sigla": "PI",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "174",
+            "state_id": "23",
+            "name": "Ceará",
+            "sigla": "CE",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "175",
+            "state_id": "24",
+            "name": "Rio Grande do Norte",
+            "sigla": "RN",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "176",
+            "state_id": "25",
+            "name": "Paraíba",
+            "sigla": "PB",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "177",
+            "state_id": "26",
+            "name": "Pernambuco",
+            "sigla": "PE",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "178",
+            "state_id": "27",
+            "name": "Alagoas",
+            "sigla": "AL",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "179",
+            "state_id": "28",
+            "name": "Sergipe",
+            "sigla": "SE",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "180",
+            "state_id": "29",
+            "name": "Bahia",
+            "sigla": "BA",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "181",
+            "state_id": "31",
+            "name": "Minas Gerais",
+            "sigla": "MG",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "182",
+            "state_id": "32",
+            "name": "Espírito Santo",
+            "sigla": "ES",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "183",
+            "state_id": "33",
+            "name": "Rio de Janeiro",
+            "sigla": "RJ",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "184",
+            "state_id": "35",
+            "name": "São Paulo",
+            "sigla": "SP",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "185",
+            "state_id": "41",
+            "name": "Paraná",
+            "sigla": "PR",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "186",
+            "state_id": "42",
+            "name": "Santa Catarina",
+            "sigla": "SC",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "187",
+            "state_id": "43",
+            "name": "Rio Grande do Sul",
+            "sigla": "RS",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "188",
+            "state_id": "50",
+            "name": "Mato Grosso do Sul",
+            "sigla": "MS",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "189",
+            "state_id": "51",
+            "name": "Mato Grosso",
+            "sigla": "MT",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "190",
+            "state_id": "52",
+            "name": "Goiás",
+            "sigla": "GO",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "191",
+            "state_id": "53",
+            "name": "Distrito Federal",
+            "sigla": "DF",
+            "created_at": "2021-03-25 04:27:32",
+            "updated_at": "2021-03-25 04:27:32"
+        },
+        {
+            "id": "192",
+            "state_id": "11",
+            "name": "Rondônia",
+            "sigla": "RO",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "193",
+            "state_id": "12",
+            "name": "Acre",
+            "sigla": "AC",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "194",
+            "state_id": "13",
+            "name": "Amazonas",
+            "sigla": "AM",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "195",
+            "state_id": "14",
+            "name": "Roraima",
+            "sigla": "RR",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "196",
+            "state_id": "15",
+            "name": "Pará",
+            "sigla": "PA",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "197",
+            "state_id": "16",
+            "name": "Amapá",
+            "sigla": "AP",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "198",
+            "state_id": "17",
+            "name": "Tocantins",
+            "sigla": "TO",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "199",
+            "state_id": "21",
+            "name": "Maranhão",
+            "sigla": "MA",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "200",
+            "state_id": "22",
+            "name": "Piauí",
+            "sigla": "PI",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "201",
+            "state_id": "23",
+            "name": "Ceará",
+            "sigla": "CE",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "202",
+            "state_id": "24",
+            "name": "Rio Grande do Norte",
+            "sigla": "RN",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "203",
+            "state_id": "25",
+            "name": "Paraíba",
+            "sigla": "PB",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "204",
+            "state_id": "26",
+            "name": "Pernambuco",
+            "sigla": "PE",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "205",
+            "state_id": "27",
+            "name": "Alagoas",
+            "sigla": "AL",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "206",
+            "state_id": "28",
+            "name": "Sergipe",
+            "sigla": "SE",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "207",
+            "state_id": "29",
+            "name": "Bahia",
+            "sigla": "BA",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "208",
+            "state_id": "31",
+            "name": "Minas Gerais",
+            "sigla": "MG",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "209",
+            "state_id": "32",
+            "name": "Espírito Santo",
+            "sigla": "ES",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "210",
+            "state_id": "33",
+            "name": "Rio de Janeiro",
+            "sigla": "RJ",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "211",
+            "state_id": "35",
+            "name": "São Paulo",
+            "sigla": "SP",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "212",
+            "state_id": "41",
+            "name": "Paraná",
+            "sigla": "PR",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "213",
+            "state_id": "42",
+            "name": "Santa Catarina",
+            "sigla": "SC",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "214",
+            "state_id": "43",
+            "name": "Rio Grande do Sul",
+            "sigla": "RS",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "215",
+            "state_id": "50",
+            "name": "Mato Grosso do Sul",
+            "sigla": "MS",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "216",
+            "state_id": "51",
+            "name": "Mato Grosso",
+            "sigla": "MT",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "217",
+            "state_id": "52",
+            "name": "Goiás",
+            "sigla": "GO",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "218",
+            "state_id": "53",
+            "name": "Distrito Federal",
+            "sigla": "DF",
+            "created_at": "2021-03-25 04:27:56",
+            "updated_at": "2021-03-25 04:27:56"
+        },
+        {
+            "id": "219",
+            "state_id": "11",
+            "name": "Rondônia",
+            "sigla": "RO",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "220",
+            "state_id": "12",
+            "name": "Acre",
+            "sigla": "AC",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "221",
+            "state_id": "13",
+            "name": "Amazonas",
+            "sigla": "AM",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "222",
+            "state_id": "14",
+            "name": "Roraima",
+            "sigla": "RR",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "223",
+            "state_id": "15",
+            "name": "Pará",
+            "sigla": "PA",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "224",
+            "state_id": "16",
+            "name": "Amapá",
+            "sigla": "AP",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "225",
+            "state_id": "17",
+            "name": "Tocantins",
+            "sigla": "TO",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "226",
+            "state_id": "21",
+            "name": "Maranhão",
+            "sigla": "MA",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "227",
+            "state_id": "22",
+            "name": "Piauí",
+            "sigla": "PI",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "228",
+            "state_id": "23",
+            "name": "Ceará",
+            "sigla": "CE",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "229",
+            "state_id": "24",
+            "name": "Rio Grande do Norte",
+            "sigla": "RN",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "230",
+            "state_id": "25",
+            "name": "Paraíba",
+            "sigla": "PB",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "231",
+            "state_id": "26",
+            "name": "Pernambuco",
+            "sigla": "PE",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "232",
+            "state_id": "27",
+            "name": "Alagoas",
+            "sigla": "AL",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "233",
+            "state_id": "28",
+            "name": "Sergipe",
+            "sigla": "SE",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "234",
+            "state_id": "29",
+            "name": "Bahia",
+            "sigla": "BA",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "235",
+            "state_id": "31",
+            "name": "Minas Gerais",
+            "sigla": "MG",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "236",
+            "state_id": "32",
+            "name": "Espírito Santo",
+            "sigla": "ES",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "237",
+            "state_id": "33",
+            "name": "Rio de Janeiro",
+            "sigla": "RJ",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "238",
+            "state_id": "35",
+            "name": "São Paulo",
+            "sigla": "SP",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "239",
+            "state_id": "41",
+            "name": "Paraná",
+            "sigla": "PR",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "240",
+            "state_id": "42",
+            "name": "Santa Catarina",
+            "sigla": "SC",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "241",
+            "state_id": "43",
+            "name": "Rio Grande do Sul",
+            "sigla": "RS",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "242",
+            "state_id": "50",
+            "name": "Mato Grosso do Sul",
+            "sigla": "MS",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "243",
+            "state_id": "51",
+            "name": "Mato Grosso",
+            "sigla": "MT",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "244",
+            "state_id": "52",
+            "name": "Goiás",
+            "sigla": "GO",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        },
+        {
+            "id": "245",
+            "state_id": "53",
+            "name": "Distrito Federal",
+            "sigla": "DF",
+            "created_at": "2021-03-25 04:31:30",
+            "updated_at": "2021-03-25 04:31:30"
+        }
+    ]
+}</system-out>
+      </testcase>
+    </testsuite>
+    <testsuite name="Tests\Controllers\CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" tests="14" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="0.032766">
+      <testcase name="test__construct" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="13" assertions="2" time="0.002295"/>
+      <testcase name="testIndex" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="24" assertions="1" time="0.003883">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "list",
+    "data": [
+        {
+            "id": "2",
+            "name": "produto de limpeza",
+            "created_at": "2021-03-23 23:45:37",
+            "updated_at": "2021-03-23 23:45:37"
+        },
+        {
+            "id": "3",
+            "name": "perefivel",
+            "created_at": "2021-03-24 05:53:37",
+            "updated_at": "2021-03-24 05:53:37"
+        },
+        {
+            "id": "4",
+            "name": "perefivel",
+            "created_at": "2021-03-24 05:53:59",
+            "updated_at": "2021-03-24 05:53:59"
+        },
+        {
+            "id": "5",
+            "name": "novaCategoriaTeste",
+            "created_at": "2021-03-24 15:22:42",
+            "updated_at": "2021-03-24 19:59:43"
+        },
+        {
+            "id": "6",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 15:25:08",
+            "updated_at": "2021-03-24 15:25:08"
+        },
+        {
+            "id": "7",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 15:25:41",
+            "updated_at": "2021-03-24 15:25:41"
+        },
+        {
+            "id": "8",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 15:27:03",
+            "updated_at": "2021-03-24 15:27:03"
+        },
+        {
+            "id": "9",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 18:27:12",
+            "updated_at": "2021-03-24 18:27:12"
+        },
+        {
+            "id": "10",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 18:27:16",
+            "updated_at": "2021-03-24 21:52:25"
+        },
+        {
+            "id": "11",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 18:30:33",
+            "updated_at": "2021-03-24 18:30:33"
+        },
+        {
+            "id": "12",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:16:08",
+            "updated_at": "2021-03-24 19:16:08"
+        },
+        {
+            "id": "13",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:16:23",
+            "updated_at": "2021-03-24 19:16:23"
+        },
+        {
+            "id": "14",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:16:31",
+            "updated_at": "2021-03-24 19:16:31"
+        },
+        {
+            "id": "15",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:21:29",
+            "updated_at": "2021-03-24 19:21:29"
+        },
+        {
+            "id": "16",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:21:31",
+            "updated_at": "2021-03-24 19:21:31"
+        },
+        {
+            "id": "17",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:21:32",
+            "updated_at": "2021-03-24 19:21:32"
+        },
+        {
+            "id": "18",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:30:55",
+            "updated_at": "2021-03-24 19:30:55"
+        },
+        {
+            "id": "19",
+            "name": "novacategoria",
+            "created_at": "2021-03-24 19:31:52",
+            "updated_at": "2021-03-24 19:31:52"
+        },
+        {
+            "id": "131",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:27:20",
+            "updated_at": "2021-03-25 00:27:20"
+        },
+        {
+            "id": "132",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:29:43",
+            "updated_at": "2021-03-25 00:29:43"
+        },
+        {
+            "id": "133",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:31:03",
+            "updated_at": "2021-03-25 00:31:03"
+        },
+        {
+            "id": "134",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:33:52",
+            "updated_at": "2021-03-25 00:33:52"
+        },
+        {
+            "id": "135",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:34:41",
+            "updated_at": "2021-03-25 00:34:41"
+        },
+        {
+            "id": "136",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:35:13",
+            "updated_at": "2021-03-25 00:35:13"
+        },
+        {
+            "id": "137",
+            "name": "qqqqqqq",
+            "created_at": "2021-03-25 00:35:52",
+            "updated_at": "2021-03-24 23:00:22"
+        },
+        {
+            "id": "138",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:37:24",
+            "updated_at": "2021-03-25 00:37:24"
+        },
+        {
+            "id": "139",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:38:07",
+            "updated_at": "2021-03-25 00:38:07"
+        },
+        {
+            "id": "140",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:43:45",
+            "updated_at": "2021-03-25 00:43:45"
+        },
+        {
+            "id": "141",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:45:05",
+            "updated_at": "2021-03-25 00:45:05"
+        },
+        {
+            "id": "142",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:46:36",
+            "updated_at": "2021-03-25 00:46:36"
+        },
+        {
+            "id": "143",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:46:43",
+            "updated_at": "2021-03-25 00:46:43"
+        },
+        {
+            "id": "144",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:51:16",
+            "updated_at": "2021-03-25 00:51:16"
+        },
+        {
+            "id": "145",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 00:58:13",
+            "updated_at": "2021-03-25 00:58:13"
+        },
+        {
+            "id": "146",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:00:16",
+            "updated_at": "2021-03-25 01:00:16"
+        },
+        {
+            "id": "147",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:01:06",
+            "updated_at": "2021-03-25 01:01:06"
+        },
+        {
+            "id": "149",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:11:17",
+            "updated_at": "2021-03-25 01:11:17"
+        },
+        {
+            "id": "152",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:12:58",
+            "updated_at": "2021-03-25 01:12:58"
+        },
+        {
+            "id": "153",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:13:56",
+            "updated_at": "2021-03-25 01:13:56"
+        },
+        {
+            "id": "154",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:14:30",
+            "updated_at": "2021-03-25 01:14:30"
+        },
+        {
+            "id": "155",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:17:49",
+            "updated_at": "2021-03-25 01:17:49"
+        },
+        {
+            "id": "156",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:18:04",
+            "updated_at": "2021-03-25 01:18:04"
+        },
+        {
+            "id": "161",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:28:08",
+            "updated_at": "2021-03-25 01:28:08"
+        },
+        {
+            "id": "162",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:28:40",
+            "updated_at": "2021-03-25 01:28:40"
+        },
+        {
+            "id": "164",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:30:15",
+            "updated_at": "2021-03-25 01:30:15"
+        },
+        {
+            "id": "165",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:33:57",
+            "updated_at": "2021-03-25 01:33:57"
+        },
+        {
+            "id": "166",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:36:23",
+            "updated_at": "2021-03-25 01:36:23"
+        },
+        {
+            "id": "167",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:44:00",
+            "updated_at": "2021-03-25 01:44:00"
+        },
+        {
+            "id": "168",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:50:17",
+            "updated_at": "2021-03-25 01:50:17"
+        },
+        {
+            "id": "175",
+            "name": "createCategoryOfTest",
+            "created_at": "2021-03-25 01:54:42",
+            "updated_at": "2021-03-25 01:54:42"
+        },
+        {
+            "id": "177",
+            "name": "nameOverride",
+            "created_at": "2021-03-25 02:01:09",
+            "updated_at": "2021-03-25 02:01:09"
+        }
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testCreate" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="35" assertions="1" time="0.007729">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "201",
+    "message": "categoria salva com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testCreateFieldRequire" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="45" assertions="1" time="0.001378">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "create",
+    "message": "obrigatório",
+    "fields": [
+        "name"
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testCreateArrayEmpty" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="55" assertions="1" time="0.000657">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "create",
+    "message": "não foi possivel salvar o categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testFindBiIdNotFound" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="68" assertions="1" time="0.000919">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testFindBiIdKeyIdNotFound" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="76" assertions="1" time="0.000745">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "message": "não foi possivel buscar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testFindBiId" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="84" assertions="1" time="0.001534">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "data": {
+        "id": "201",
+        "name": "createCategoryOfTest",
+        "created_at": "2021-03-25 04:31:30",
+        "updated_at": "2021-03-25 04:31:30"
+    }
+}</system-out>
+      </testcase>
+      <testcase name="testEditIdNotFound" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="101" assertions="1" time="0.000839">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testEditKeyIdNotFound" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="111" assertions="1" time="0.000647">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "message": "não foi possivel editar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testEditCategory" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="120" assertions="2" time="0.005424">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "id": "201",
+    "message": "categoria editada com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteIdNotFoud" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="144" assertions="1" time="0.001073">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteNameKeyInvalid" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="154" assertions="1" time="0.001887">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "message": "não foi possivel excluir a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testDelete" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/test/Controllers/CategoryTest.php" line="168" assertions="1" time="0.003756">
+        <system-out>{
+    "status": "sucess",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "id": "201",
+    "message": "categoria excluida com sucesso"
+}</system-out>
+      </testcase>
+    </testsuite>
+    <testsuite name="Tests\Controllers\ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" tests="18" assertions="18" errors="0" warnings="0" failures="0" skipped="0" time="0.036990">
+      <testcase name="test__construct" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="13" assertions="1" time="0.001297"/>
+      <testcase name="testIndex" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="24" assertions="1" time="0.002034">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Product",
+    "method": "list",
+    "data": [
+        {
+            "id": "3",
+            "category_id": "2",
+            "name": "Feijão",
+            "quantity": "4",
+            "price": "4.50",
+            "created_at": "2021-03-24 00:13:45",
+            "updated_at": "2021-03-24 00:13:45"
+        },
+        {
+            "id": "4",
+            "category_id": "2",
+            "name": "sabonete",
+            "quantity": "10",
+            "price": "25.50",
+            "created_at": "2021-03-24 04:26:08",
+            "updated_at": "2021-03-24 04:26:08"
+        },
+        {
+            "id": "6",
+            "category_id": "2",
+            "name": "sabonete",
+            "quantity": "10",
+            "price": "25.50",
+            "created_at": "2021-03-24 04:27:37",
+            "updated_at": "2021-03-24 04:27:37"
+        },
+        {
+            "id": "7",
+            "category_id": "2",
+            "name": "sabonete",
+            "quantity": "10",
+            "price": "25.50",
+            "created_at": "2021-03-24 04:28:09",
+            "updated_at": "2021-03-24 04:28:09"
+        },
+        {
+            "id": "8",
+            "category_id": "2",
+            "name": "sabonete",
+            "quantity": "10",
+            "price": "25.50",
+            "created_at": "2021-03-24 04:28:11",
+            "updated_at": "2021-03-24 04:28:11"
+        },
+        {
+            "id": "9",
+            "category_id": "2",
+            "name": "sabonete",
+            "quantity": "10",
+            "price": "25.50",
+            "created_at": "2021-03-24 04:28:57",
+            "updated_at": "2021-03-24 04:28:57"
+        },
+        {
+            "id": "10",
+            "category_id": "2",
+            "name": "ALTERADAsss",
+            "quantity": "1122222",
+            "price": "5.90",
+            "created_at": "2021-03-24 04:30:05",
+            "updated_at": "2021-03-24 20:06:43"
+        },
+        {
+            "id": "29",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 21:15:30",
+            "updated_at": "2021-03-24 21:15:30"
+        },
+        {
+            "id": "31",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 21:16:10",
+            "updated_at": "2021-03-24 21:16:10"
+        },
+        {
+            "id": "33",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:03:40",
+            "updated_at": "2021-03-24 22:03:40"
+        },
+        {
+            "id": "35",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:10:48",
+            "updated_at": "2021-03-24 22:10:48"
+        },
+        {
+            "id": "36",
+            "category_id": "2",
+            "name": "newProductTestOverwritten",
+            "quantity": "5",
+            "price": "5.90",
+            "created_at": "2021-03-24 22:10:48",
+            "updated_at": "2021-03-24 22:10:48"
+        },
+        {
+            "id": "37",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:11:40",
+            "updated_at": "2021-03-24 22:11:40"
+        },
+        {
+            "id": "38",
+            "category_id": "2",
+            "name": "newProductTestOverwritten",
+            "quantity": "5",
+            "price": "5.90",
+            "created_at": "2021-03-24 22:11:40",
+            "updated_at": "2021-03-24 22:11:40"
+        },
+        {
+            "id": "39",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:14:14",
+            "updated_at": "2021-03-24 22:14:14"
+        },
+        {
+            "id": "40",
+            "category_id": "2",
+            "name": "newProductTestOverwritten",
+            "quantity": "5",
+            "price": "5.90",
+            "created_at": "2021-03-24 22:14:14",
+            "updated_at": "2021-03-24 22:14:14"
+        },
+        {
+            "id": "41",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:15:15",
+            "updated_at": "2021-03-24 22:15:15"
+        },
+        {
+            "id": "43",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:19:20",
+            "updated_at": "2021-03-24 22:19:20"
+        },
+        {
+            "id": "45",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:21:41",
+            "updated_at": "2021-03-24 22:21:41"
+        },
+        {
+            "id": "47",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:23:16",
+            "updated_at": "2021-03-24 22:23:16"
+        },
+        {
+            "id": "49",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:23:58",
+            "updated_at": "2021-03-24 22:23:58"
+        },
+        {
+            "id": "51",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:25:06",
+            "updated_at": "2021-03-24 22:25:06"
+        },
+        {
+            "id": "53",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:25:17",
+            "updated_at": "2021-03-24 22:25:17"
+        },
+        {
+            "id": "55",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:25:55",
+            "updated_at": "2021-03-24 22:25:55"
+        },
+        {
+            "id": "66",
+            "category_id": "5",
+            "name": "newProductTest",
+            "quantity": "50",
+            "price": "50.20",
+            "created_at": "2021-03-24 22:47:46",
+            "updated_at": "2021-03-24 22:47:46"
+        }
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testCreateObject" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="37" assertions="1" time="0.006600">
+        <system-out>{
+    "status": "success",
+    "method": "create",
+    "class": "Controller\/Product",
+    "id": "166",
+    "data": "produto salvo com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testCreateProductEmpty" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="51" assertions="1" time="0.000721">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "create",
+    "message": "não foi possivel salvar o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testCreateProductFieldRequireNotDeclared" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="60" assertions="1" time="0.001316">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "create",
+    "message": "obrigatório",
+    "fields": [
+        "name"
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testCreateProductFieldStatementInvalid" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="74" assertions="1" time="0.002337">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "create",
+    "message": "Nao foi possivel salvar o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testCreateProductCategoryNotFound" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="88" assertions="1" time="0.001428">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "create",
+    "message": "categoria inválida"
+}</system-out>
+      </testcase>
+      <testcase name="testFindBiId" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="106" assertions="1" time="0.001626">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Product",
+    "method": "findById",
+    "data": {
+        "id": "166",
+        "category_id": "5",
+        "name": "newProductTest",
+        "quantity": "50",
+        "price": "50.20",
+        "created_at": "2021-03-25 04:31:30",
+        "updated_at": "2021-03-25 04:31:30"
+    }
+}</system-out>
+      </testcase>
+      <testcase name="testFindBiIdNotFound" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="120" assertions="1" time="0.001181">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "findById",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testFindBiIdKeyIdNotFound" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="129" assertions="1" time="0.000873">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "findById",
+    "message": "não foi possivel editar o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testEditIncrementQuantityAutomatic" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="145" assertions="1" time="0.005186">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "id": "166",
+    "message": "produto salvo com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testEditIdNotFound" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="166" assertions="1" time="0.000955">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testEditKeyIdNotFound" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="179" assertions="1" time="0.000773">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "message": "não foi possivel editar o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testEditIdStatementInvalid" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="191" assertions="1" time="0.002598">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "id": "166",
+    "message": "produto salvo com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testEditIdCategoryInvalid" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="211" assertions="1" time="0.001814">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "message": "categoria inválida"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteIdNotFoud" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="232" assertions="1" time="0.000943">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "delete",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteNameKeyInvalid" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="242" assertions="1" time="0.001266">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "delete",
+    "message": "nao foi possivel excluir o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testDelete" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/test/Controllers/ProductTest.php" line="256" assertions="1" time="0.004040">
+        <system-out>{
+    "status": "sucess",
+    "class": "Controller\/Product",
+    "method": "delete",
+    "id": "166",
+    "message": "produto excluido com sucesso"
+}</system-out>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

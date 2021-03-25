@@ -175,20 +175,21 @@ class Product
 
             if (!empty($data['category_id'])) {
                 $category_id = (int)filter_var($data['category_id'], FILTER_SANITIZE_NUMBER_INT);
-                if (!empty($category_id) && is_numeric($category_id))
+                if (!empty($category_id) && is_numeric($category_id)) {
                     $category = (new \App\Models\Category())->findById($category_id);
-            }
-
-            if (empty($category)) {
-                http_response_code(400);
-                echo json_encode(array("status" => "error",
-                    "type" => "invalid_data",
-                    "class" => "Controller/Product",
-                    "method" => "edit",
-                    "message" => "categoria inválida"),
-                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                return false;
-            }
+                }
+                if (empty($category)) {
+                    http_response_code(400);
+                    echo json_encode(array("status" => "error",
+                        "type" => "invalid_data",
+                        "class" => "Controller/Product",
+                        "method" => "edit",
+                        "message" => "categoria inválida"),
+                        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                    return false;
+                }
+            } else
+                $category_id = $product->category_id;
 
             $product->category_id = $category_id ?? $product->category_id;
             $product->name = !empty($data['name']) ? $data['name'] : $product->name;

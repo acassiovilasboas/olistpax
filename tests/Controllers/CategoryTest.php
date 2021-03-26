@@ -212,19 +212,4 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
 
         $this->assertTrue($response);
     }
-
-
-
-//    public function testCreateOfCategorySentRequestEmptyMustReturnFalse()
-//    {
-//        $objectCategory = (new \App\Controllers\Category())->create($this->arrayCategory);
-//
-//        $classFake = $this->createMock(Category::class);
-//        $classFake->expects($this->any())->method('find')->willReturn($objectCategory);
-//
-//        $response = (new \App\Controllers\Category())->index();
-//
-//        $this->assertIsArray($response);
-//    }
-
 }

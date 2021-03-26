@@ -36,7 +36,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $objectCategory = (new Category());
 
         $classFake = $this->createMock(Category::class);
-        $classFake->expects($this->any())->method('find')->willReturn($objectCategory);
+        $classFake->method('fetch')->willReturn($objectCategory);
 
         $response = (new \App\Controllers\Category())->index();
 

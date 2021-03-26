@@ -31,6 +31,7 @@ class BrazilStates
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
         $this->callback = json_decode(curl_exec($ch));
+
         curl_close($ch);
     }
 }

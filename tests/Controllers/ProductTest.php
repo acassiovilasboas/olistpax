@@ -47,7 +47,7 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $objectEmpty = (new Product());
 
         $classProductFake = $this->createMock(DataLayer::class);
-        $classProductFake->expects($this->any())->method('__set')->willReturn($objectEmpty);
+        $classProductFake->expects($this->any())->method('find')->willReturn($objectEmpty);
 
         $response = \App\Controllers\Product::index();
 

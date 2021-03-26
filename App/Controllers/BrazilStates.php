@@ -14,9 +14,6 @@ class BrazilStates
         $apiGetStates->getBrazilStates();
         $response = $apiGetStates->callback();
 
-        if (empty($response))
-            return false;
-
         self::registerResponseInDatabase($response);
         return true;
     }
@@ -26,7 +23,7 @@ class BrazilStates
 //        header('Content-type: application/json');
         $states = (new \App\Models\BrazilStates())->find()->fetch(true);
 
-        if ($states) {
+        if (!empty($states)) {
 
             $arrayStates = [];
             foreach ($states as $state) {

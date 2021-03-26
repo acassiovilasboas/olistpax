@@ -9,8 +9,20 @@ class Product
     public function index()
     {
         $product = (new \App\Models\Product())->find()->order('id')->fetch(true);
-//      header comentado para rodar os testes
+
+//      header comentado para rodar os testesddddddddddddd
 //      header('Content-type: application/json');
+
+        if(empty($product)) {
+            http_response_code(400);
+            echo json_encode(array(
+                "status" => "error",
+                "class" => "Controller/Product",
+                "method" => "list",
+                "message" => "não existe produtos cadastrados na base de dados"),
+                JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return false;
+        }
 
         $response = [];
         foreach ($product as $p) {
@@ -94,7 +106,7 @@ class Product
                     "id" => $model->id,
                     "data" => "produto salvo com sucesso"),
                     JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-                return true;
+                return $model;
             }
         }
 

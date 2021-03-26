@@ -14,7 +14,7 @@ $router = new Router(URL_BASE . '/api');
 $router->namespace("App\Controllers");
 
 //$router->group(null);
-$router->get('/', function(){echo "pagina inicial";});
+$router->get('/', function(){echo "<a href='https://documenter.getpostman.com/view/9912123/TzCHCWFa' target='_blank'>Consulte a documentação</a>";});
 
 
 /*
@@ -44,7 +44,8 @@ $router->delete('/{id}', "Product:delete");
  */
 $router->group("states");
 $router->get('/', "BrazilStates:index");
-$router->get('/register', "BrazilStates:getStates");
+$router->post('/', "BrazilStates:create");
+$router->delete('/', "BrazilStates:delete");
 
 
 /*

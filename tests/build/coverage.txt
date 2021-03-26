@@ -1,24 +1,18 @@
 
 
 Code Coverage Report:      
-  2021-03-25 07:05:32      
+  2021-03-26 10:24:30      
                            
  Summary:                  
-  Classes: 85.71% (6/7)    
-  Methods: 85.00% (17/20)  
-  Lines:   96.40% (321/333)
+  Classes: 28.57% (2/7)    
+  Methods: 22.73% (5/22)   
+  Lines:   30.58% (111/363)
 
-App\Controllers\BrazilStates
-  Methods:   0.00% ( 0/ 3)   Lines:  74.47% ( 35/ 47)
 App\Controllers\Category
-  Methods: 100.00% ( 5/ 5)   Lines: 100.00% (124/124)
+  Methods:   0.00% ( 0/ 5)   Lines:  13.08% ( 17/130)
 App\Controllers\Product
-  Methods: 100.00% ( 5/ 5)   Lines: 100.00% (145/145)
-App\Models\BrazilStates
-  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+  Methods:  60.00% ( 3/ 5)   Lines:  59.21% ( 90/152)
 App\Models\Category
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
 App\Models\Product
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
-App\Support\BrazilStates
-  Methods: 100.00% ( 4/ 4)   Lines: 100.00% ( 11/ 11)

@@ -8,11 +8,21 @@ class Category
 {
     public function index()
     {
+//       header comentado para rodar os testes
+//       header('Content-type: application/json');
 
         $category = (new \App\Models\Category())->find()->order('id')->fetch(true);
 
-//       header comentado para rodar os testes
-//       header('Content-type: application/json');
+        if(empty($category)){
+            http_response_code(400);
+            echo json_encode(array(
+                "status" => "error",
+                "class" => "Controller/Category",
+                "method" => "list",
+                "message" => "não existe categorias cadastradas na base de dados"),
+                JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return false;
+        }
 
         $response = [];
         foreach ($category as $c)
@@ -43,6 +53,7 @@ class Category
                 }
             }
 
+
             if (!empty($message)) {
                 http_response_code(400);
                 echo json_encode(array(
@@ -66,7 +77,7 @@ class Category
                 "id" => $model->id,
                 "message" => "categoria salva com sucesso"),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            return true;
+            return $model;
         }
 
         $message = [];
@@ -76,6 +87,7 @@ class Category
                 $message[] = $m->Field;
             }
         }
+
 
         http_response_code(400);
         echo json_encode(array(

@@ -149,7 +149,7 @@ class Category
 //       header('Content-type: application/json');
 
         if (!empty($data['id'])) {
-            $id = filter_var($data['id'], FILTER_SANITIZE_NUMBER_INT);
+            $id = (int) filter_var($data['id'], FILTER_SANITIZE_NUMBER_INT);
             $object = (new \App\Models\Category())->findById($id);
 
             if (empty($object)) {
@@ -175,7 +175,7 @@ class Category
                 "id" => $object->id,
                 "message" => "categoria editada com sucesso"),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            return true;
+            return $object;
         }
 
         http_response_code(400);
@@ -196,7 +196,7 @@ class Category
 
         if (!empty($data['id'])) {
             $id = filter_var($data['id'], FILTER_SANITIZE_NUMBER_INT);
-            $object = (new \App\Models\Category())->findById($id);
+            $object = (new \App\Models\Category())->findById($id) ?? '';
 
             if (empty($object)) {
                 http_response_code(400);

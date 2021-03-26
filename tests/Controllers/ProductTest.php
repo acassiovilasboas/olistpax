@@ -172,28 +172,28 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($response);
     }
 
-    public function testForFindByIdWithArrayEmptyMustReturnFalse()
+    public function testForProductFindByIdWithArrayEmptyMustReturnFalse()
     {
         $response = (new \App\Controllers\Product())->findById([]);
 
         $this->assertFalse($response);
     }
 
-    public function testForFindByIdWithIdNotExistMustReturnFalse()
+    public function testForProductFindByIdWithIdNotExistMustReturnFalse()
     {
         $response = (new \App\Controllers\Product())->findById(['id' => 999999]);
 
         $this->assertFalse($response);
     }
 
-    public function testForFindByIdWithOtherTermInArrayMustReturnFalse()
+    public function testForProductFindByIdWithOtherTermInArrayMustReturnFalse()
     {
         $response = (new \App\Controllers\Product())->findById(['key_invalid' => 1]);
 
         $this->assertFalse($response);
     }
 
-    public function testForFindByIdWithMockClassMustReturnTrue()
+    public function testForProductFindByIdWithMockClassMustReturnTrue()
     {
         $this->objectProduct = (new \App\Controllers\Product())->create($this->arrayProduct);
 
@@ -203,6 +203,132 @@ class ProductTest extends \PHPUnit\Framework\TestCase
         $response = (new \App\Controllers\Product())->findById(['id' => $this->objectProduct->data()->id]);
         $this->assertIsObject($response);
         $this->assertEquals($response, $this->objectProduct->data());
+    }
+
+    public function testForProductEditProductWithTermIdNotSentMustReturnFalse()
+    {
+        $response = (new \App\Controllers\Product())->edit([]);
+
+        $this->assertFalse($response);
+    }
+
+    public function testForEditProductWithOtherTermInArrayMustReturnFalse()
+    {
+        $response = (new \App\Controllers\Product())->edit(['key_invalid' => 1]);
+
+        $this->assertFalse($response);
+    }
+
+    public function testForEditProductWithIdNotExistInDatabaseMustReturnFalse()
+    {
+        $response = (new \App\Controllers\Product())->edit(['id' => 99999999]);
+
+        $this->assertFalse($response);
+    }
+
+    public function testForEditProductWithIdValidAndCategoryIdInvalid()
+    {
+        $this->objectProduct = (new \App\Controllers\Product())->create($this->arrayProduct);
+
+        $classProductFake = $this->createMock(Category::class);
+        $classProductFake->method('findById')->willReturn($this->objectProduct);
+
+        $arrayProduct = [
+            'id' => $this->objectProduct->data()->id,
+            'category_id' => '999aaa999',
+            'name' => 'new product',
+            'price' => 25.5,
+            'quantity' => 54
+        ];
+
+        $response = (new \App\Controllers\Product())->edit($arrayProduct);
+        $this->assertFalse($response);
+    }
+
+    public function testForEditProductWithDataValidMustReturnTrue()
+    {
+        $this->objectProduct = (new \App\Controllers\Product())->create($this->arrayProduct);
+
+        $classProductFake = $this->createMock(Category::class);
+        $classProductFake->method('findById')->willReturn($this->objectProduct);
+
+        $arrayProduct = [
+            'id' => $this->objectProduct->data()->id,
+            'category_id' => $this->objectCategory->data()->id,
+            'name' => 'new product',
+            'price' => 25.5,
+            'quantity' => 54
+        ];
+
+        $response = (new \App\Controllers\Product())->edit($arrayProduct);
+
+        $this->assertIsObject($response);
+        $this->assertNotEquals($this->objectProduct->data(), $response->data());
+    }
+
+    public function testForEditProductWithDataValidAndCategoryIdEmptyMustReturnTrue()
+    {
+        $this->objectProduct = (new \App\Controllers\Product())->create($this->arrayProduct);
+
+        $classProductFake = $this->createMock(Category::class);
+        $classProductFake->method('findById')->willReturn($this->objectProduct);
+
+        $arrayProduct = [
+            'id' => $this->objectProduct->data()->id,
+            'name' => 'new product',
+            'price' => 25.5,
+            'quantity' => 54
+        ];
+
+        $response = (new \App\Controllers\Product())->edit($arrayProduct);
+
+        $this->assertIsObject($response);
+        $this->assertNotEquals($this->objectProduct->data(), $response->data());
+    }
+
+    // validar regra de negocio: quando editar um produto e nao informar
+    // o quantity, este será incrementado em 1.
+    public function testForEditProductValidatingQuantityRuleMustBeDifference()
+    {
+        $this->objectProduct = (new \App\Controllers\Product())->create($this->arrayProduct);
+
+        $classProductFake = $this->createMock(Category::class);
+        $classProductFake->method('findById')->willReturn($this->objectProduct);
+
+        $arrayProduct = [
+            'id' => $this->objectProduct->data()->id
+        ];
+
+        $response = (new \App\Controllers\Product())->edit($arrayProduct);
+
+        $this->assertIsObject($response);
+        $this->assertNotEquals($this->objectProduct->data(), $response->data());
+    }
+
+    public function testForDeleteProductSentArrayEmptyMustReturnFalse()
+    {
+        $response = (new \App\Controllers\Product())->delete([]);
+
+        $this->assertFalse($response);
+    }
+
+    public function testForDeleteProductSentIdInvalidMustReturnFalse()
+    {
+        $response = (new \App\Controllers\Product())->delete(['id' => 32164978]);
+
+        $this->assertFalse($response);
+    }
+
+    public function testForDeleteProductSentIdValidMustReturnTrue()
+    {
+        $this->objectProduct = (new \App\Controllers\Product())->create($this->arrayProduct);
+
+        $classProductFake = $this->createMock(Product::class);
+        $classProductFake->method('destroy')->willReturn(true);
+
+        $response = (new \App\Controllers\Product())->delete(['id' => $this->objectProduct->data()->id]);
+
+        $this->assertTrue($response);
     }
 
 }

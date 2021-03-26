@@ -217,7 +217,7 @@ class Product
                 "id" => $product->id,
                 "message" => "produto salvo com sucesso"),
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            return true;
+            return $product;
 
         }
         http_response_code(400);
@@ -226,7 +226,7 @@ class Product
             "type" => "invalid_data",
             "class" => "Controller/Product",
             "method" => "edit",
-            "message" => "não foi possivel editar o produto"),
+            "message" => "não foi possível editar o produto"),
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         return false;
     }

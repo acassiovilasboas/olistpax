@@ -1,22 +1,270 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="/var/www/html/olist/tests" tests="22" assertions="23" errors="0" warnings="0" failures="0" skipped="0" time="0.139909">
-    <testsuite name="Tests\Controllers\BrazilStatesTest" file="/var/www/html/olist/tests/Controllers/BrazilStatesTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.002110">
-      <testcase name="testGetStatesApiNotResponse" class="Tests\Controllers\BrazilStatesTest" classname="Tests.Controllers.BrazilStatesTest" file="/var/www/html/olist/tests/Controllers/BrazilStatesTest.php" line="11" assertions="1" time="0.002110"/>
+  <testsuite name="/var/www/html/olist/tests" tests="54" assertions="59" errors="0" warnings="0" failures="0" skipped="0" time="0.232170">
+    <testsuite name="Tests\Controllers\BrazilStatesTest" file="/var/www/html/olist/tests/Controllers/BrazilStatesTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.002302">
+      <testcase name="testGetStatesApiNotResponse" class="Tests\Controllers\BrazilStatesTest" classname="Tests.Controllers.BrazilStatesTest" file="/var/www/html/olist/tests/Controllers/BrazilStatesTest.php" line="11" assertions="1" time="0.002302"/>
     </testsuite>
-    <testsuite name="Tests\Controllers\CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000496">
-      <testcase name="testIndex" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="12" assertions="1" time="0.000496"/>
-    </testsuite>
-    <testsuite name="Tests\Controllers\IntegrationTest" file="/var/www/html/olist/tests/Controllers/IntegrationTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000573">
-      <testcase name="testError" class="Tests\Controllers\IntegrationTest" classname="Tests.Controllers.IntegrationTest" file="/var/www/html/olist/tests/Controllers/IntegrationTest.php" line="100" assertions="1" time="0.000573"/>
-    </testsuite>
-    <testsuite name="Tests\Controllers\ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" tests="19" assertions="20" errors="0" warnings="0" failures="0" skipped="0" time="0.136730">
-      <testcase name="testFunctionIndexMustReturnFalseBecauseProductIsEmpty" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="45" assertions="1" time="0.014978">
+    <testsuite name="Tests\Controllers\CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" tests="23" assertions="24" errors="0" warnings="0" failures="0" skipped="0" time="0.051671">
+      <testcase name="testIndexOfCategorySentRequestWithDatabaseEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="32" assertions="2" time="0.007404">
+        <system-out>{
+    "status": "error",
+    "class": "Controller\/Category",
+    "method": "list",
+    "message": "não existe categorias cadastradas na base de dados"
+}</system-out>
+      </testcase>
+      <testcase name="testIndexOfCategorySentRequestWithDatabasePopulateMustReturnArray" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="47" assertions="1" time="0.008052">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "644",
+    "id": "2943",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "list",
+    "data": [
+        {
+            "id": "2943",
+            "name": "alimento",
+            "created_at": "2021-03-26 13:15:13",
+            "updated_at": "2021-03-26 13:15:13"
+        }
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testCreateOfCategorySentRequestEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="59" assertions="1" time="0.001431">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "create",
+    "message": "obrigatório",
+    "fields": [
+        "name"
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testCreateOfCategorySentRequestTermRequiredEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="66" assertions="1" time="0.001310">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "create",
+    "message": "obrigatório",
+    "fields": [
+        "name"
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testCreateOfCategorySentRequestTermInvalidRequiredEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="73" assertions="1" time="0.001235">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "create",
+    "message": "obrigatório",
+    "fields": [
+        "name"
+    ]
+}</system-out>
+      </testcase>
+      <testcase name="testFindByIdOfCategorySentRequestRequestEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="80" assertions="1" time="0.000775">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "message": "não foi possivel buscar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testFindByIdOfCategorySentRequestTermRequiredInvalidMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="87" assertions="1" time="0.000761">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "message": "não foi possivel buscar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testFindByIdOfCategorySentRequestValueRequiredEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="94" assertions="1" time="0.000807">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "message": "não foi possivel buscar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testFindByIdOfCategorySentRequestValueOfIdNotExistMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="101" assertions="1" time="0.000787">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "message": "não foi possivel buscar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testFindByIdOfCategoryWithDatabaseEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="108" assertions="1" time="0.001153">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testFindByIdOfCategorySentRequestValidMustReturnTrue" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="115" assertions="1" time="0.007128">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2944",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "findById",
+    "data": {
+        "id": "2944",
+        "name": "alimento",
+        "created_at": "2021-03-26 13:15:13",
+        "updated_at": "2021-03-26 13:15:13"
+    }
+}</system-out>
+      </testcase>
+      <testcase name="testEditOfCategorySentRequestValueOfIdNotExistMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="127" assertions="1" time="0.000799">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "message": "não foi possivel editar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testEditOfCategorySentRequestKeyNotExistMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="134" assertions="1" time="0.000802">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "message": "não foi possivel editar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testEditOfCategorySentRequestIdEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="141" assertions="1" time="0.000720">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "message": "não foi possivel editar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testEditOfCategorySentRequestIdInTextEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="148" assertions="1" time="0.000975">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testEditOfCategorySentRequestEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="155" assertions="1" time="0.000740">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "message": "não foi possivel editar a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testEditOfCategoryErrorInternServerMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="162" assertions="1" time="0.004906">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2945",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "edit",
+    "id": "2945",
+    "message": "categoria editada com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteOfCategorySentRequestValueOfIdNotExistMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="172" assertions="1" time="0.001034">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "message": "não foi possivel excluir a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteOfCategorySentRequestKeyNotExistMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="179" assertions="1" time="0.000897">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "message": "não foi possivel excluir a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteOfCategorySentRequestIdEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="186" assertions="1" time="0.000851">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "message": "não foi possivel excluir a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteOfCategorySentRequestIdEmptyMustReturnFakklse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="193" assertions="1" time="0.001373">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteOfCategorySentRequestEmptyMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="200" assertions="1" time="0.001233">
+        <system-out>{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "message": "não foi possivel excluir a categoria"
+}</system-out>
+      </testcase>
+      <testcase name="testDeleteOfCategoryErrorInternServerMustReturnFalse" class="Tests\Controllers\CategoryTest" classname="Tests.Controllers.CategoryTest" file="/var/www/html/olist/tests/Controllers/CategoryTest.php" line="207" assertions="1" time="0.006498">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2946",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "sucess",
+    "class": "Controller\/Category",
+    "method": "delete",
+    "id": "2946",
+    "message": "categoria excluida com sucesso"
+}</system-out>
+      </testcase>
+    </testsuite>
+    <testsuite name="Tests\Controllers\IntegrationTest" file="/var/www/html/olist/tests/Controllers/IntegrationTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000649">
+      <testcase name="testError" class="Tests\Controllers\IntegrationTest" classname="Tests.Controllers.IntegrationTest" file="/var/www/html/olist/tests/Controllers/IntegrationTest.php" line="100" assertions="1" time="0.000649"/>
+    </testsuite>
+    <testsuite name="Tests\Controllers\ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" tests="29" assertions="33" errors="0" warnings="0" failures="0" skipped="0" time="0.177548">
+      <testcase name="testFunctionIndexMustReturnFalseBecauseProductIsEmpty" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="45" assertions="1" time="0.006353">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2947",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -25,18 +273,18 @@
     "message": "não existe produtos cadastrados na base de dados"
 }</system-out>
       </testcase>
-      <testcase name="testFunctionIndexMustReturnArrayOfProduct" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="57" assertions="1" time="0.007051">
+      <testcase name="testFunctionIndexMustReturnArrayOfProduct" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="57" assertions="1" time="0.007019">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "645",
+    "id": "2948",
     "message": "categoria salva com sucesso"
 }{
     "status": "success",
     "method": "create",
     "class": "Controller\/Product",
-    "id": "322",
+    "id": "756",
     "data": "produto salvo com sucesso"
 }{
     "status": "success",
@@ -44,106 +292,106 @@
     "method": "list",
     "data": [
         {
-            "id": "322",
-            "category_id": "645",
+            "id": "756",
+            "category_id": "2948",
             "name": "sabão em pó",
             "quantity": "5",
             "price": "6.90",
-            "created_at": "2021-03-26 10:24:30",
-            "updated_at": "2021-03-26 10:24:30"
+            "created_at": "2021-03-26 13:15:13",
+            "updated_at": "2021-03-26 13:15:13"
         }
     ]
 }</system-out>
       </testcase>
-      <testsuite name="Tests\Controllers\ProductTest::testForCreateProductWithFieldMultiplesErrors" tests="9" assertions="9" errors="0" warnings="0" failures="0" skipped="0" time="0.043600">
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #0" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004121">
+      <testsuite name="Tests\Controllers\ProductTest::testForCreateProductWithFieldMultiplesErrors" tests="9" assertions="9" errors="0" warnings="0" failures="0" skipped="0" time="0.045437">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #0" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.006556">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "646",
+    "id": "2949",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #1" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.005206">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #1" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.005793">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "647",
+    "id": "2950",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #2" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004422">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #2" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004787">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "648",
+    "id": "2951",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #3" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004274">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #3" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004411">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "649",
+    "id": "2952",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #4" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.006942">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #4" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004815">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "650",
+    "id": "2953",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #5" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004715">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #5" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.005214">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "651",
+    "id": "2954",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #6" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004794">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #6" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004990">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "652",
+    "id": "2955",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #7" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004564">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #7" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004961">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "653",
+    "id": "2956",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
-        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #8" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.004563">
+        <testcase name="testForCreateProductWithFieldMultiplesErrors with data set #8" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="128" assertions="1" time="0.003913">
           <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "654",
+    "id": "2957",
     "message": "categoria salva com sucesso"
 }</system-out>
         </testcase>
       </testsuite>
-      <testcase name="testForCreateProductSentArrayEmptyHasReturnedFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="133" assertions="1" time="0.006587">
+      <testcase name="testForCreateProductSentArrayEmptyHasReturnedFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="133" assertions="1" time="0.004249">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "655",
+    "id": "2958",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -153,12 +401,12 @@
     "message": "não foi possivel criar o produto"
 }</system-out>
       </testcase>
-      <testcase name="testForCreateProductWithTermPriceNotFoundMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="140" assertions="1" time="0.012100">
+      <testcase name="testForCreateProductWithTermPriceNotFoundMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="140" assertions="1" time="0.005051">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "656",
+    "id": "2959",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -171,12 +419,12 @@
     ]
 }</system-out>
       </testcase>
-      <testcase name="testFoCreateProductWithNumberIdOfCategoryInvalidMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="150" assertions="1" time="0.013975">
+      <testcase name="testFoCreateProductWithNumberIdOfCategoryInvalidMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="150" assertions="1" time="0.006288">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "657",
+    "id": "2960",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -186,12 +434,12 @@
     "message": "categoria inválida"
 }</system-out>
       </testcase>
-      <testcase name="testForCreateProductWithTermTypeTextInFieldTypeFloatMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="161" assertions="1" time="0.012761">
+      <testcase name="testForCreateProductWithTermTypeTextInFieldTypeFloatMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="161" assertions="1" time="0.008944">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "658",
+    "id": "2961",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -201,12 +449,12 @@
     "message": "não foi possivel salvar o produto"
 }</system-out>
       </testcase>
-      <testcase name="testForFindByIdWithArrayEmptyMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="175" assertions="1" time="0.005449">
+      <testcase name="testForProductFindByIdWithArrayEmptyMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="175" assertions="1" time="0.004605">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "659",
+    "id": "2962",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -216,12 +464,12 @@
     "message": "não foi possivel editar o produto"
 }</system-out>
       </testcase>
-      <testcase name="testForFindByIdWithIdNotExistMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="182" assertions="1" time="0.006429">
+      <testcase name="testForProductFindByIdWithIdNotExistMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="182" assertions="1" time="0.004956">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "660",
+    "id": "2963",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -231,12 +479,12 @@
     "message": "identificador inválido"
 }</system-out>
       </testcase>
-      <testcase name="testForFindByIdWithOtherTermInArrayMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="189" assertions="1" time="0.005162">
+      <testcase name="testForProductFindByIdWithOtherTermInArrayMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="189" assertions="1" time="0.006406">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "661",
+    "id": "2964",
     "message": "categoria salva com sucesso"
 }{
     "status": "error",
@@ -246,32 +494,212 @@
     "message": "não foi possivel editar o produto"
 }</system-out>
       </testcase>
-      <testcase name="testForFindByIdWithMockClassMustReturnTrue" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="196" assertions="2" time="0.008638">
+      <testcase name="testForProductFindByIdWithMockClassMustReturnTrue" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="196" assertions="2" time="0.007837">
         <system-out>{
     "status": "success",
     "class": "Controller\/Category",
     "method": "create",
-    "id": "662",
+    "id": "2965",
     "message": "categoria salva com sucesso"
 }{
     "status": "success",
     "method": "create",
     "class": "Controller\/Product",
-    "id": "323",
+    "id": "757",
     "data": "produto salvo com sucesso"
 }{
     "status": "success",
     "class": "Controller\/Product",
     "method": "findById",
     "data": {
-        "id": "323",
-        "category_id": "662",
+        "id": "757",
+        "category_id": "2965",
         "name": "sabão em pó",
         "quantity": "5",
         "price": "6.90",
-        "created_at": "2021-03-26 10:24:30",
-        "updated_at": "2021-03-26 10:24:30"
+        "created_at": "2021-03-26 13:15:13",
+        "updated_at": "2021-03-26 13:15:13"
     }
+}</system-out>
+      </testcase>
+      <testcase name="testForProductEditProductWithTermIdNotSentMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="208" assertions="1" time="0.004488">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2966",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "message": "não foi possível editar o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testForEditProductWithOtherTermInArrayMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="215" assertions="1" time="0.005029">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2967",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "message": "não foi possível editar o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testForEditProductWithIdNotExistInDatabaseMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="222" assertions="1" time="0.006309">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2968",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testForEditProductWithIdValidAndCategoryIdInvalid" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="229" assertions="1" time="0.007586">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2969",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "method": "create",
+    "class": "Controller\/Product",
+    "id": "758",
+    "data": "produto salvo com sucesso"
+}{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "message": "categoria inválida"
+}</system-out>
+      </testcase>
+      <testcase name="testForEditProductWithDataValidMustReturnTrue" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="248" assertions="2" time="0.009086">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2970",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "method": "create",
+    "class": "Controller\/Product",
+    "id": "759",
+    "data": "produto salvo com sucesso"
+}{
+    "status": "success",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "id": "759",
+    "message": "produto salvo com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testForEditProductWithDataValidAndCategoryIdEmptyMustReturnTrue" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="269" assertions="2" time="0.009908">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2971",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "method": "create",
+    "class": "Controller\/Product",
+    "id": "760",
+    "data": "produto salvo com sucesso"
+}{
+    "status": "success",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "id": "760",
+    "message": "produto salvo com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testForEditProductValidatingQuantityRuleMustBeDifference" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="291" assertions="2" time="0.009410">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2972",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "method": "create",
+    "class": "Controller\/Product",
+    "id": "761",
+    "data": "produto salvo com sucesso"
+}{
+    "status": "success",
+    "class": "Controller\/Product",
+    "method": "edit",
+    "id": "761",
+    "message": "produto salvo com sucesso"
+}</system-out>
+      </testcase>
+      <testcase name="testForDeleteProductSentArrayEmptyMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="308" assertions="1" time="0.004406">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2973",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "delete",
+    "message": "nao foi possivel excluir o produto"
+}</system-out>
+      </testcase>
+      <testcase name="testForDeleteProductSentIdInvalidMustReturnFalse" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="315" assertions="1" time="0.004924">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2974",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "error",
+    "type": "invalid_data",
+    "class": "Controller\/Product",
+    "method": "delete",
+    "message": "identificador inválido"
+}</system-out>
+      </testcase>
+      <testcase name="testForDeleteProductSentIdValidMustReturnTrue" class="Tests\Controllers\ProductTest" classname="Tests.Controllers.ProductTest" file="/var/www/html/olist/tests/Controllers/ProductTest.php" line="322" assertions="1" time="0.009256">
+        <system-out>{
+    "status": "success",
+    "class": "Controller\/Category",
+    "method": "create",
+    "id": "2975",
+    "message": "categoria salva com sucesso"
+}{
+    "status": "success",
+    "method": "create",
+    "class": "Controller\/Product",
+    "id": "762",
+    "data": "produto salvo com sucesso"
+}{
+    "status": "sucess",
+    "class": "Controller\/Product",
+    "method": "delete",
+    "id": "762",
+    "message": "produto excluido com sucesso"
 }</system-out>
       </testcase>
     </testsuite>
